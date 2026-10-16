@@ -22,6 +22,7 @@ export class TodoView {
         //Lo visual
         this.todoList = this.createElement('ul', 'todo-list')
 
+        //DOM
         this.form.append(this.input, this.submitButton)
 
         this.app.append(this.title, this.form, this.todoList)
@@ -31,6 +32,7 @@ export class TodoView {
         
     }
 
+    //Crear elementos
     createElement(tag, className) {
         const element = document.createElement(tag)
         if (className) element.classList.add(className)
@@ -38,20 +40,24 @@ export class TodoView {
         return element
     }
 
+    //Obtener elementos
     getElement(selector) {
         const element = document.querySelector(selector)
 
         return element
     }
 
+    //Getter para obtener el texto del input
     get _todoText() {
         return this.input.value
     }
 
+    //Resetear el input
     _resetInput() {
         this.input.value = ''
     }
 
+    //Mostrar los todos
     displayTodos(todos) {
         while (this.todoList.firstChild) {
             this.todoList.removeChild(this.todoList.firstChild)
@@ -91,6 +97,7 @@ export class TodoView {
         }
     }
 
+    //Bind para agregar un todo
     bindAddTodo(handler) {
         this.form.addEventListener('submit', event => {
         event.preventDefault()
@@ -101,6 +108,7 @@ export class TodoView {
         })
     }
 
+    //Bind para borrar un todo
     bindDeleteTodo(handler) {
         this.todoList.addEventListener('click', event => {
             if (event.target.className === 'delete') {
@@ -111,6 +119,7 @@ export class TodoView {
         })
     }
 
+    //Bind para marcar un todo como completado
     bindToggleTodo(handler) {
         this.todoList.addEventListener('change', event => {
             if (event.target.type === 'checkbox') {
@@ -121,6 +130,7 @@ export class TodoView {
         })
     }
 
+    //Bind para editar un todo
     _initLocalListeners() {
         this.todoList.addEventListener('input', event => {
             if (event.target.className === 'editable') {
@@ -129,6 +139,7 @@ export class TodoView {
         })
     }
 
+    //Bind para editar un todo
     bindEditTodo(handler) {
         this.todoList.addEventListener('focusout', event => {
             if (this._temporaryTodoText) {

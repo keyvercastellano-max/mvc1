@@ -1,8 +1,9 @@
 export class TodoModel {
     constructor() {
+        //Obtener los todos del localStorage
         this.todos = JSON.parse(localStorage.getItem('todos')) || []
     }
-
+    
     bindTodoListChanged(callback) {
         this.onTodoListChanged = callback
     }
