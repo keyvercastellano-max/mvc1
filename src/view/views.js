@@ -6,18 +6,18 @@ export class TodoView {
 
         //Titulo
         this.title = this.createElement('h1')
-        this.title.textContent = 'Buenas'
+        this.title.textContent = 'Ejemplo de MVC'
 
         //El formulario
         this.form = this.createElement('form')
 
         this.input = this.createElement('input')
         this.input.type = 'text'
-        this.input.placeholder = 'Add todo'
+        this.input.placeholder = 'Escribe Algo:'
         this.input.name = 'todo'
 
         this.submitButton = this.createElement('button')
-        this.submitButton.textContent = 'Submit'
+        this.submitButton.textContent = 'Subir'
 
         //Lo visual
         this.todoList = this.createElement('ul', 'todo-list')
@@ -59,7 +59,7 @@ export class TodoView {
 
         if (todos.length === 0) {
             const p = this.createElement('p')
-            p.textContent = 'Nothing to do! Add a task?'
+            p.textContent = 'Aun Nada :P, agrega algo!'
             this.todoList.append(p)
         } else {
             todos.forEach((todo) => {
@@ -83,7 +83,7 @@ export class TodoView {
                 }
 
                 const deleteButton = this.createElement('button', 'delete')
-                deleteButton.textContent = 'Delete'
+                deleteButton.textContent = 'Borrar'
                 li.append(checkbox, span, deleteButton)
 
                 this.todoList.append(li)
